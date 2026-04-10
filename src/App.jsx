@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
- import Navber from "./componat/Navber";
+import Navber from "./componat/Navber";
 import Main from "./componat/Main";
 import Footer from "./componat/Footer";
 import Projects from "./pages/Projects";
@@ -9,22 +9,22 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <div className="bg-black text-white  backdrop-blur-lg overflow-x-hidden">
-      <Navber />
-       <Routes>
+
+      <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
-        
+
       </Routes>
-      
-      
-      
+
+
+
       <br /> <br />
-      
+      <Navber />
       <Projects />
-      <About/>
-      <Contact/>
+      <About />
+      <Contact />
       <Footer />
     </div>
   );

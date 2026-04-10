@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { 
-  FaGithub, FaLinkedin, FaTwitter, FaInstagram, 
+import { motion } from "framer-motion";
+import {
+  FaGithub, FaLinkedin, FaTwitter, FaInstagram,
   FaArrowDown, FaCode, FaRocket,
   FaEnvelope, FaGraduationCap, FaBriefcase, FaClock
 } from "react-icons/fa";
+import Profile from '../assets/profile.png';
+
 
 // ============ ANIMATED BACKGROUND COMPONENT ============
 const AnimatedBackground = () => (
@@ -35,7 +37,7 @@ const AnimatedBackground = () => (
       transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 bg-pink-500/20 rounded-full blur-[100px]"
     />
-    
+
     <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-size[64px_64px]" />
   </div>
 );
@@ -46,8 +48,8 @@ const SkillBadge = ({ children, delay = 0 }) => (
     initial={{ opacity: 0, scale: 0.8 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ delay, duration: 0.5, type: "spring" }}
-    whileHover={{ 
-      scale: 1.1, 
+    whileHover={{
+      scale: 1.1,
       backgroundColor: "rgba(168, 85, 247, 0.2)",
       borderColor: "rgba(168, 85, 247, 0.5)"
     }}
@@ -60,7 +62,7 @@ const SkillBadge = ({ children, delay = 0 }) => (
 // ============ SOCIAL LINK COMPONENT ============
 const SocialLink = ({ href, iconComponent, label, delay }) => {
   const IconComponent = iconComponent;
-  
+
   return (
     <motion.a
       href={href}
@@ -82,7 +84,7 @@ const SocialLink = ({ href, iconComponent, label, delay }) => {
 // ============ STATUS INDICATOR COMPONENT ============
 const StatusIndicator = ({ iconComponent, text, color = "green", delay = 0 }) => {
   const IconComponent = iconComponent;
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -103,20 +105,16 @@ const StatusIndicator = ({ iconComponent, text, color = "green", delay = 0 }) =>
 // ============ MAIN COMPONENT ============
 const Main = () => {
   const containerRef = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-  
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+
+
+
 
   // Profile Data
   const profile = {
-    name: "Checking",
-    title: "Full Stack Developer & UI/UX Designer",
-    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRNPQxt8ZLNHXp6jkHGmadRYrCKGE53w9ufg&s',
+    name: "Muhammad Luqman",
+    title: "MERN Stack Developer & UI/UX Designer",
+    image: Profile,
     bio: "I craft modern digital experiences that blend beautiful design with powerful functionality. Specializing in React ecosystems with a passion for smooth animations and performant code.",
     status: [
       { iconComponent: FaGraduationCap, text: "CS Student @ University", color: "blue" },
@@ -124,9 +122,9 @@ const Main = () => {
       { iconComponent: FaClock, text: "Available 5+ hrs/day", color: "green" }
     ],
     skills: [
-      "React.js", "Next.js", "TypeScript", "Tailwind CSS", 
-      "Node.js", "Framer Motion", "UI/UX Design", "REST APIs",
-      "MongoDB", "Git", "Figma", "AWS"
+      "React.js", "Next.js", "TypeScript", "Tailwind CSS",
+      "Node.js", "Framer Motion", "UI/UX Design",
+      "Git",
     ],
     socials: [
       { href: "https://github.com", iconComponent: FaGithub, label: "GitHub" },
@@ -155,23 +153,23 @@ const Main = () => {
   };
 
   return (
-    <div ref={containerRef} className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-20">
-      
+    <div ref={containerRef} className="statice min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-20">
+
       {/* Animated Background */}
       <AnimatedBackground />
 
       {/* Main Content Grid */}
-      <motion.div 
-        style={{ y, opacity }}
+      <motion.div
+
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl w-full relative z-10"
       >
-        
+
         {/* ===== LEFT COLUMN: CONTENT ===== */}
         <div className="space-y-8 order-2 lg:order-1">
-          
+
           {/* Greeting Badge */}
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
@@ -179,7 +177,7 @@ const Main = () => {
           </motion.div>
 
           {/* Main Heading */}
-          <motion.h1 
+          <motion.h1
             variants={itemVariants}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight"
           >
@@ -190,7 +188,7 @@ const Main = () => {
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p 
+          <motion.p
             variants={itemVariants}
             className="text-xl sm:text-2xl text-gray-400 font-light"
           >
@@ -198,7 +196,7 @@ const Main = () => {
           </motion.p>
 
           {/* Bio Description */}
-          <motion.p 
+          <motion.p
             variants={itemVariants}
             className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl"
           >
@@ -206,7 +204,7 @@ const Main = () => {
           </motion.p>
 
           {/* Status Indicators */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="flex flex-wrap gap-4 pt-2"
           >
@@ -226,7 +224,7 @@ const Main = () => {
           </motion.div>
 
           {/* CTA Buttons */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="flex flex-wrap gap-4 pt-4"
           >
@@ -253,7 +251,7 @@ const Main = () => {
           </motion.div>
 
           {/* Social Links */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="flex gap-4 pt-6 border-t border-white/5"
           >
@@ -265,15 +263,15 @@ const Main = () => {
         </div>
 
         {/* ===== RIGHT COLUMN: PROFILE IMAGE ===== */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="relative flex justify-center items-center order-1 lg:order-2"
         >
-          
+
           {/* Decorative Rings */}
           <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full border border-purple-500/20 animate-spin-slow" style={{ animationDuration: '20s' }} />
           <div className="absolute w-80 h-80 sm:w-125 sm:h-125 rounded-full border border-blue-500/20 animate-spin-slow reverse" style={{ animationDuration: '25s' }} />
-          
+
           {/* Glow Effect Behind Image */}
           <motion.div
             animate={{
@@ -299,7 +297,7 @@ const Main = () => {
                 className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-700"
               />
             </div>
-            
+
             {/* Floating Status Badge */}
             <motion.div
               animate={{ y: [-5, 5, -5] }}
@@ -320,7 +318,7 @@ const Main = () => {
             >
               <FaRocket className="text-white text-lg" />
             </motion.div>
-            
+
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}

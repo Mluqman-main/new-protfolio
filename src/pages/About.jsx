@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { FaReact, FaNodeJs, FaDocker, FaAws, FaFigma } from "react-icons/fa";
+import { SiNextdotjs, SiTypescript, SiMongodb, SiPostgresql, SiTailwindcss, SiFramer, SiGraphql } from "react-icons/si";
 
 const stats = [
   { icon: "fa-code", number: 50, suffix: "+", label: "Projects Completed", color: "from-purple-500 to-blue-500" },
@@ -151,7 +153,7 @@ const ServiceCard = ({ service, index }) => (
   >
     {/* Glow Effect */}
     <div className={`absolute inset-0 bg-linear-to-br from-${service.color}-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-    
+
     {/* Icon */}
     <div className={`w-14 h-14 mb-4 flex items-center justify-center rounded-xl bg-linear-to-br from-${service.color}-500 to-${service.color}-600 text-white text-2xl shadow-lg shadow-${service.color}-500/25 group-hover:scale-110 transition-transform duration-300`}>
       <i className={`fas ${service.icon}`}></i>
@@ -203,7 +205,7 @@ const About = () => {
 
   return (
     <div id="about" className="min-h-screen px-4 sm:px-6 py-24 relative overflow-hidden bg-black">
-      
+
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
@@ -230,7 +232,7 @@ const About = () => {
           >
             Get To Know Me
           </motion.span>
-          
+
           {/* Fixed the gradient class here */}
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r from-white via-purple-200 to-blue-200">
             About Me
@@ -242,7 +244,7 @@ const About = () => {
 
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-20">
-          
+
           {/* Left Column */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -270,8 +272,8 @@ const About = () => {
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-1">John Developer</h3>
-                    <p className="text-purple-400 font-medium mb-3">Full Stack Developer</p>
+                    <h3 className="text-2xl font-bold text-white mb-1">M Luqman Developer</h3>
+                    <p className="text-purple-400 font-medium mb-3">Mearn Stack Developer</p>
                     <div className="flex flex-wrap gap-2">
                       <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs font-medium rounded-full border border-purple-500/30">
                         Available for Hire
@@ -286,7 +288,7 @@ const About = () => {
                 {/* Bio Text */}
                 <div className="space-y-4 text-gray-300 leading-relaxed">
                   <p>
-                    I'm a passionate <span className="text-white font-semibold">Full Stack Developer</span> focused on building modern, high-performance web applications. With a keen eye for design and love for clean code, I specialize in creating beautiful UI/UX with smooth animations and scalable architecture.
+                    I'm a passionate <span className="text-white font-semibold">Mearn Stack Developer</span> focused on building modern, high-performance web applications. With a keen eye for design and love for clean code, I specialize in creating beautiful UI/UX with smooth animations and scalable architecture.
                   </p>
                   <p>
                     Currently, I'm expanding my expertise in backend technologies while working as a freelancer, delivering real-world projects that exceed client expectations. I believe in continuous learning and pushing the boundaries of what's possible on the web.
@@ -301,7 +303,7 @@ const About = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <i className="fas fa-envelope text-purple-400"></i>
-                    <span className="text-gray-400 text-sm">hello@email.com</span>
+                    <span className="text-gray-400 text-sm">princekhan27012007@gmail.com</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <i className="fas fa-briefcase text-purple-400"></i>
@@ -309,7 +311,7 @@ const About = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <i className="fas fa-graduation-cap text-purple-400"></i>
-                    <span className="text-gray-400 text-sm">Self-Taught Developer</span>
+                    <span className="text-gray-400 text-sm">Mearn Stack Developer</span>
                   </div>
                 </div>
 
@@ -352,11 +354,10 @@ const About = () => {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`flex-1 px-4 py-3 rounded-lg font-medium capitalize transition-all ${
-                    activeTab === tab
-                      ? 'bg-linear-to-r from-purple-500 to-blue-500 text-white shadow-lg'
-                      : 'text-gray-400 hover:text-white hover:bg-white/5'
-                  }`}
+                  className={`flex-1 px-4 py-3 rounded-lg font-medium capitalize transition-all ${activeTab === tab
+                    ? 'bg-linear-to-r from-purple-500 to-blue-500 text-white shadow-lg'
+                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                    }`}
                 >
                   {tab}
                 </button>
@@ -460,24 +461,27 @@ const About = () => {
             {Array.from({ length: 2 }).map((_, index) => (
               <React.Fragment key={index}>
                 {[
-                  "React",
-                  "Next.js",
-                  "TypeScript",
-                  "Node.js",
-                  "MongoDB",
-                  "PostgreSQL",
-                  "Tailwind CSS",
-                  "Framer Motion",
-                  "GraphQL",
-                  "Docker",
-                  "AWS",
-                  "Figma"
+                  {
+                    icon: <FaReact />,
+                    title: "React"
+                  },
+                  { icon: <SiNextdotjs />, title: "Next.js" },
+                  { icon: <SiTypescript />, title: "TypeScript" },
+                  { icon: <FaNodeJs />, title: "Node.js" },
+                  { icon: <SiMongodb />, title: "MongoDB" },
+                  { icon: <SiPostgresql />, title: "PostgreSQL" },
+                  { icon: <SiTailwindcss />, title: "Tailwind CSS" },
+                  { icon: <SiFramer />, title: "Framer Motion" },
+                  { icon: <SiGraphql />, title: "GraphQL" },
+                  { icon: <FaDocker />, title: "Docker" },
+                  { icon: <FaAws />, title: "AWS" },
+                  { icon: <FaFigma />, title: "Figma" },
                 ].map((tech) => (
                   <div key={tech + index} className="flex items-center gap-3 px-6 py-3 bg-gray-900/50 backdrop-blur border border-white/10 rounded-full">
                     <div className="w-8 h-8 flex items-center justify-center rounded-full bg-linear-to-br from-purple-500/20 to-blue-500/20">
-                      <i className="fas fa-check text-purple-400 text-xs"></i>
+                      <i className="fas fa-check text-purple-400 text-xs"> {tech.icon} </i>
                     </div>
-                    <span className="text-white font-medium whitespace-nowrap">{tech}</span>
+                    <span className="text-white font-medium whitespace-nowrap">{tech.title}</span>
                   </div>
                 ))}
               </React.Fragment>

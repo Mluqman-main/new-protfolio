@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  FaBars, FaTimes, FaArrowRight, 
-  FaGithub, FaLinkedin, FaTwitter 
+import {
+  FaBars, FaTimes, FaArrowRight,
+  FaGithub, FaLinkedin, FaTwitter
 } from "react-icons/fa";
 
 // ============ NAVIGATION LINKS DATA ============
@@ -26,9 +26,9 @@ const Logo = () => (
     </motion.div>
     <span className="text-xl font-bold tracking-wider">
       <span className="text-white">DEV</span>
-      <span className="bg-linear-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">.PORT</span>
+      <span className="bg-linear-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">.ML</span>
     </span>
-    
+
     {/* Hover Glow Effect */}
     <motion.div
       className="absolute -inset-2 bg-linear-to-r from-purple-500/20 to-blue-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
@@ -76,14 +76,13 @@ const NavLink = ({ to, children, isActive, onClick }) => (
     <motion.div
       whileHover={{ y: -2 }}
       whileTap={{ y: 0 }}
-      className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${
-        isActive 
-          ? "text-purple-400" 
-          : "text-gray-300 hover:text-white"
-      }`}
+      className={`relative px-4 py-2 text-sm font-medium transition-colors  hover:border-b-2 duration-300 ${isActive
+        ? "text-purple-400"
+        : "text-gray-300 hover:text-white"
+        }`}
     >
       {children}
-      
+
       {/* Active Indicator */}
       {isActive && (
         <motion.div
@@ -92,9 +91,9 @@ const NavLink = ({ to, children, isActive, onClick }) => (
           transition={{ type: "spring", stiffness: 380, damping: 30 }}
         />
       )}
-      
+
       {/* Hover Underline */}
-      <div className="absolute bottom-0 left-2 right-2 h-0.5 bg-white/30 origin-left scale-x-0 hover:scale-x-100 transition-transform duration-300" />
+      <div className="absolute bottom-0 left-2 right-2 h-0.5   origin-left scale-x-0 hover:scale-x-100 transition-transform duration-300" />
     </motion.div>
   </Link>
 );
@@ -112,14 +111,14 @@ const MobileMenu = ({ isOpen, links, onClose }) => (
           onClick={onClose}
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
         />
-        
+
         {/* Menu Panel */}
         <motion.nav
           initial={{ x: "100%" }}
           animate={{ x: 0 }}
           exit={{ x: "100%" }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed top-0 right-0 h-full w-70 bg-gray-900/95 backdrop-blur-xl border-l border-white/10 z-50 flex flex-col p-8 md:hidden"
+          className=" sticky top-0 right-0 h-full w-70 bg-gray-900/95 backdrop-blur-xl border-l border-white/10 z-50 flex flex-col p-8 md:hidden"
         >
           {/* Close Button Area */}
           <div className="flex justify-end mb-12">
@@ -158,11 +157,11 @@ const MobileMenu = ({ isOpen, links, onClose }) => (
             <Link
               to="/contact"
               onClick={onClose}
-              className="block w-full py-3 text-center bg-linear-to-r from-purple-600 to-blue-600 rounded-xl font-semibold text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-shadow"
+              className="block w-40 h-auto py-3 text-center bg-linear-to-r from-purple-600 to-blue-600 rounded-xl font-semibold text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-shadow"
             >
               Hire Me ✨
             </Link>
-            
+
             {/* Social Links */}
             <div className="flex justify-center gap-4 mt-6 pt-6 border-t border-white/10">
               {[FaGithub, FaLinkedin, FaTwitter].map((SocialIcon, idx) => (
@@ -191,7 +190,7 @@ const Navbar = () => {
   // Scroll Detection Effect
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 30);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -211,20 +210,19 @@ const Navbar = () => {
   }, [isMobileMenuOpen]);
 
   return (
-    <>
+    <div className=" fixed z-50">
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.6, -0.05, 0.01, 0.99] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? "bg-gray-900/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
-            : "bg-transparent border-b border-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? "bg-gray-900/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
+          : "bg-transparent border-b border-transparent"
+          }`}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
-            
+
             {/* Logo */}
             <Logo />
 
@@ -243,7 +241,7 @@ const Navbar = () => {
 
             {/* Right Section */}
             <div className="flex items-center gap-4">
-              
+
               {/* Desktop CTA Button */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -258,7 +256,7 @@ const Navbar = () => {
                     Hire Me
                     <FaArrowRight className="transform group-hover:translate-x-1 transition-transform" size={12} />
                   </span>
-                  
+
                   {/* Shimmer Effect */}
                   <motion.div
                     initial={{ x: "-100%" }}
@@ -286,7 +284,7 @@ const Navbar = () => {
         links={NAV_LINKS}
         onClose={() => setIsMobileMenuOpen(false)}
       />
-    </>
+    </div>
   );
 };
 
