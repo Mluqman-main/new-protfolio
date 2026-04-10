@@ -49,6 +49,42 @@ const projects = [
     technologies: ["Next.js", "Framer Motion"],
     featured: true,
     year: "2023"
+  },
+  {
+    title: "E-Commerce UI",
+    desc: "Modern e-commerce interface",
+    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400",
+    category: "Web App",
+    technologies: ["React", "Tailwind"],
+    featured: true,
+    year: "2024"
+  },
+  {
+    title: "Portfolio",
+    desc: "Animated portfolio website",
+    img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400",
+    category: "Website",
+    technologies: ["Next.js", "Framer Motion"],
+    featured: true,
+    year: "2023"
+  },
+  {
+    title: "E-Commerce UI",
+    desc: "Modern e-commerce interface",
+    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400",
+    category: "Web App",
+    technologies: ["React", "Tailwind"],
+    featured: true,
+    year: "2024"
+  },
+  {
+    title: "Portfolio",
+    desc: "Animated portfolio website",
+    img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400",
+    category: "Website",
+    technologies: ["Next.js", "Framer Motion"],
+    featured: true,
+    year: "2023"
   }
 ];
 
@@ -112,8 +148,8 @@ const Projects = () => {
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-2 rounded-xl ${selectedCategory === cat
-                  ? "bg-linear-to-r from-purple-500 to-blue-500"
-                  : "bg-white/5"
+                ? "bg-linear-to-r from-purple-500 to-blue-500"
+                : "bg-white/5"
                 }`}
             >
               {cat}

@@ -253,7 +253,7 @@ const Main = () => {
           {/* Social Links */}
           <motion.div
             variants={itemVariants}
-            className="flex gap-4 pt-6 border-t border-white/5"
+            className="flex gap-4 pt-6  border-t border-white/5"
           >
             {profile.socials.map((social, idx) => (
               <SocialLink key={social.label} {...social} delay={0.8 + idx * 0.1} />
@@ -337,7 +337,7 @@ const Main = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 1 }}
+        transition={{ delay: 1, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <span className="text-xs text-gray-600 tracking-widest uppercase">Scroll</span>

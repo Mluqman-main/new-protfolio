@@ -1,50 +1,54 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FaReact, FaNodeJs, FaDocker, FaAws, FaFigma } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaDocker, FaAws, FaFigma, FaTasks, FaBriefcase, FaUsers, FaMugHot, FaCode, FaPaintBrush, FaRocket } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript, SiMongodb, SiPostgresql, SiTailwindcss, SiFramer, SiGraphql } from "react-icons/si";
-
+import { MdDevices } from "react-icons/md";
+import profile from '../assets/profile.png';
+import Contact from './Contact';
+import { Link } from 'react-router-dom';
 const stats = [
-  { icon: "fa-code", number: 50, suffix: "+", label: "Projects Completed", color: "from-purple-500 to-blue-500" },
-  { icon: "fa-calendar", number: 2, suffix: "+", label: "Years Experience", color: "from-blue-500 to-cyan-500" },
-  { icon: "fa-users", number: 30, suffix: "+", label: "Happy Clients", color: "from-cyan-500 to-green-500" },
-  { icon: "fa-coffee", number: 1000, suffix: "+", label: "Cups of Coffee", color: "from-yellow-500 to-orange-500" }
+  { icon: <FaTasks />, number: 50, suffix: "+", label: "Projects Completed", color: "from-purple-500 to-blue-500" },
+  { icon: <FaBriefcase />, number: 2, suffix: "+", label: "Years Experience", color: "from-blue-500 to-cyan-500" },
+  { icon: <FaUsers />, number: 30, suffix: "+", label: "Happy Clients", color: "from-cyan-500 to-green-500" },
+  { icon: <FaMugHot />, number: 1000, suffix: "+", label: "Cups of Coffee", color: "from-yellow-500 to-orange-500" }
 ];
 
+
 const skills = [
-  { name: "React / Next.js", level: 95, category: "Frontend", icon: "fab fa-react" },
-  { name: "TypeScript", level: 88, category: "Frontend", icon: "fab fa-js-square" },
-  { name: "Tailwind CSS", level: 92, category: "Frontend", icon: "fab fa-css3-alt" },
-  { name: "Node.js / Express", level: 75, category: "Backend", icon: "fab fa-node-js" },
-  { name: "MongoDB / SQL", level: 70, category: "Backend", icon: "fas fa-database" },
-  { name: "REST APIs / GraphQL", level: 80, category: "Backend", icon: "fas fa-plug" },
+  { name: "React / Next.js", level: 99, category: "Frontend", icon: "fab fa-react" },
+  { name: "TypeScript", level: 90, category: "Frontend", icon: "fab fa-js-square" },
+  { name: "Tailwind CSS", level: 95, category: "Frontend", icon: "fab fa-css3-alt" },
+  { name: "Node.js / Express", level: 85, category: "Backend", icon: "fab fa-node-js" },
+
+
   { name: "Git / GitHub", level: 90, category: "Tools", icon: "fab fa-github" },
-  { name: "Figma / Design", level: 78, category: "Tools", icon: "fab fa-figma" }
+
 ];
 
 const services = [
   {
-    icon: "fa-laptop-code",
+    icon: <FaCode />,
     title: "Web Development",
     desc: "Building responsive and performant web applications using modern frameworks and best practices.",
     color: "purple"
   },
   {
-    icon: "fa-palette",
+    icon: <FaPaintBrush />,
     title: "UI/UX Design",
     desc: "Creating beautiful, intuitive interfaces with attention to user experience and accessibility.",
     color: "blue"
   },
   {
-    icon: "fa-mobile-alt",
+    icon: <MdDevices />,
     title: "Responsive Design",
     desc: "Ensuring seamless experiences across all devices with mobile-first approach.",
     color: "cyan"
   },
   {
-    icon: "fa-rocket",
+    icon: < FaRocket />,
     title: "Performance Optimization",
     desc: "Optimizing applications for speed, SEO, and overall performance excellence.",
-    color: "pink"
+    color: "purple"
   }
 ];
 
@@ -156,7 +160,7 @@ const ServiceCard = ({ service, index }) => (
 
     {/* Icon */}
     <div className={`w-14 h-14 mb-4 flex items-center justify-center rounded-xl bg-linear-to-br from-${service.color}-500 to-${service.color}-600 text-white text-2xl shadow-lg shadow-${service.color}-500/25 group-hover:scale-110 transition-transform duration-300`}>
-      <i className={`fas ${service.icon}`}></i>
+      <i className={`fas ${service.icon}`}> {service.icon}</i>
     </div>
 
     <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">{service.title}</h3>
@@ -172,6 +176,7 @@ const ServiceCard = ({ service, index }) => (
 // TimelineItem component
 const TimelineItem = ({ item, index }) => (
   <motion.div
+    key={index}
     initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true }}
@@ -262,17 +267,17 @@ const About = () => {
                   <div className="relative shrink-0">
                     <div className="w-28 h-28 rounded-2xl bg-linear-to-br from-purple-500 via-blue-500 to-cyan-500 p-1">
                       <img
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face"
+                        src={profile}
                         alt="Profile"
                         className="w-full h-full object-cover rounded-xl"
                       />
                     </div>
                     <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-900 flex items-center justify-center">
-                      <i className="fas fa-check text-white text-xs"></i>
+                      <i className=" text-white text-xs"> </i>
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-1">M Luqman Developer</h3>
+                    <h3 className="text-2xl font-bold text-white mb-1">Muhammad Luqman </h3>
                     <p className="text-purple-400 font-medium mb-3">Mearn Stack Developer</p>
                     <div className="flex flex-wrap gap-2">
                       <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs font-medium rounded-full border border-purple-500/30">
@@ -317,15 +322,15 @@ const About = () => {
 
                 {/* CTA Buttons */}
                 <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                  <motion.a
-                    href="#contact"
+                  <motion.button
+
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-linear-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-purple-500/25 transition-all"
                   >
-                    <i className="fas fa-paper-plane"></i>
-                    Contact Me
-                  </motion.a>
+                    <Link to={Contact} className="fas fa-paper-plane">Contact Me</Link>
+
+                  </motion.button>
                   <motion.a
                     href="#"
                     whileHover={{ scale: 1.05 }}
@@ -382,7 +387,7 @@ const About = () => {
               {activeTab === "services" && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {services.map((service, index) => (
-                    <ServiceCard key={service.title} service={service} index={index} />
+                    <ServiceCard key={service.title} icon={service.icon} service={service} index={index} />
                   ))}
                 </div>
               )}
@@ -426,7 +431,7 @@ const About = () => {
             <div className={`absolute inset-0 bg-linear-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
             {/* Icon */}
             <div className={`relative w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-2xl bg-linear-to-br ${stat.color} text-white text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-              <i className={`fas ${stat.icon}`}></i>
+              <i className={`fas ${stat.icon}`}>{stat.icon} </i>
             </div>
             {/* Counter */}
             <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
@@ -477,10 +482,10 @@ const About = () => {
                   { icon: <FaAws />, title: "AWS" },
                   { icon: <FaFigma />, title: "Figma" },
                 ].map((tech) => (
-                  <div key={tech + index} className="flex items-center gap-3 px-6 py-3 bg-gray-900/50 backdrop-blur border border-white/10 rounded-full">
+                  <div key={`${tech.title}-${tech.icon}`} className="flex items-center gap-3 px-6 py-3 bg-gray-900/50 backdrop-blur border border-white/10 rounded-full">
                     <div className="w-8 h-8 flex items-center justify-center rounded-full bg-linear-to-br from-purple-500/20 to-blue-500/20">
                       <i className="fas fa-check text-purple-400 text-xs"> {tech.icon} </i>
-                    </div>
+                    </div >
                     <span className="text-white font-medium whitespace-nowrap">{tech.title}</span>
                   </div>
                 ))}
