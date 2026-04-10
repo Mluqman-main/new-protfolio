@@ -291,10 +291,10 @@ const Main = () => {
             {/* Inner Border Glow */}
             <div className="w-full h-full rounded-full bg-gray-950 p-1">
               <img
-                src={profile.avatar}
+                src={profile.image}
                 alt={`${profile.name}'s profile photo`}
                 loading="lazy"
-                className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover rounded-full  hover:grayscale-0 transition-all duration-700"
               />
             </div>
 

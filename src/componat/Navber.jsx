@@ -76,7 +76,7 @@ const NavLink = ({ to, children, isActive, onClick }) => (
     <motion.div
       whileHover={{ y: -2 }}
       whileTap={{ y: 0 }}
-      className={`relative px-4 py-2 text-sm font-medium transition-colors  hover:border-b-2 duration-300 ${isActive
+      className={`relative px-4 py-2 text-sm font-medium transition-colors  duration-300 ${isActive
         ? "text-purple-400"
         : "text-gray-300 hover:text-white"
         }`}

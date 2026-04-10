@@ -204,7 +204,7 @@ const About = () => {
   const [activeTab, setActiveTab] = useState("skills");
 
   return (
-    <div id="about" className="min-h-screen px-4 sm:px-6 py-24 relative overflow-hidden bg-black">
+    <div id="about" className="min-h-screen px-4 sm:px-6 py-24 relative overflow-hidden bg-gray-950">
 
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">

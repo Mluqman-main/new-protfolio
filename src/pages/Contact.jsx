@@ -102,7 +102,7 @@ const Contact = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-black text-white px-6 py-20 relative overflow-hidden"
+      className="min-h-screen bg-gray-950 text-white px-6 py-20 relative overflow-hidden"
     >
       {/* 🔥 Animated Background */}
       <motion.div
